@@ -1,22 +1,20 @@
 package top.smartliu.dataPool;
 
+import org.junit.Test;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
-import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import javax.sql.DataSource;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DataSourceTest {
     @Test
     public void testSpringDruid() throws SQLException {
-        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         // 支持使用类名获取 bean
-        // DataSource dataSource = app.getBean(DataSource.class);
-        DataSource dataSource = (DataSource)app.getBean("dataSource");
+        // DataSource dataSource = applicationContext.getBean(DataSource.class);
+        DataSource dataSource = (DataSource)applicationContext.getBean("dataSource");
         Connection connection = dataSource.getConnection();
 
         System.out.println(connection);
