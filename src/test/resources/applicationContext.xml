@@ -5,14 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 加载jdbc.properties文件-->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <!-- 此部分的name，和DataSourceTest中的set方法相对应，28行 -->
-        <property name="driverClassName" value="${jdbc.driver}"></property>
-        <property name="url" value="${jdbc.url}"></property>
-        <property name="username" value="${jdbc.username}"></property>
-        <property name="password" value="${jdbc.password}"></property>
-    </bean>
+<!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        &lt;!&ndash; 此部分的name，和DataSourceTest中的set方法相对应，28行 &ndash;&gt;-->
+<!--        <property name="driverClassName" value="${jdbc.driver}"></property>-->
+<!--        <property name="url" value="${jdbc.url}"></property>-->
+<!--        <property name="username" value="${jdbc.username}"></property>-->
+<!--        <property name="password" value="${jdbc.password}"></property>-->
+<!--    </bean>-->
 
     <!--
         bean标签标示配置bean
@@ -25,6 +25,6 @@
 <!--        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>-->
 <!--    </bean>-->
 
-    <context:component-scan base-package="top.smartliu"/>
+<!--    <context:component-scan base-package="top.smartliu"/>-->
 
 </beans>
