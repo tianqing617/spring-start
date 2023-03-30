@@ -1,4 +1,5 @@
 package top.smartliu.service;
 
-public class BookService {
+public interface BookService {
+    public void save();
 }

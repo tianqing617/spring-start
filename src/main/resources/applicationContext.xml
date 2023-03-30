@@ -9,4 +9,8 @@
     class属性表示给bean定义类型-->
     <bean id="bookDao" class="top.smartliu.dao.impl.BookDaoImpl"/>
 
+    <bean id="bookService" class="top.smartliu.service.impl.BookServiceImpl">
+        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>
+    </bean>
+
 </beans>
