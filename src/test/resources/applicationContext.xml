@@ -19,10 +19,12 @@
         id属性标示给bean起名字
         class属性表示给bean定义类型
     -->
-    <bean id="bookDao" class="top.smartliu.dao.impl.BookDaoImpl"/>
+<!--    <bean id="bookDao" class="top.smartliu.dao.impl.BookDaoImpl"/>-->
 
-    <bean id="bookService" class="top.smartliu.service.impl.BookServiceImpl">
-        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>
-    </bean>
+<!--    <bean id="bookService" class="top.smartliu.service.impl.BookServiceImpl">-->
+<!--        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>-->
+<!--    </bean>-->
+
+    <context:component-scan base-package="top.smartliu"/>
 
 </beans>
