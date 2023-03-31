@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 public class DataSourceTest {
     @Test
+//    此方法运行失败，因配置文件已注释
     public void testSpringDruid() throws SQLException {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         // 支持使用类名获取 bean
