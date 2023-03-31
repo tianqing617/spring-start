@@ -25,6 +25,7 @@
 <!--        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>-->
 <!--    </bean>-->
 
+<!--    注解的组件扫描-->
 <!--    <context:component-scan base-package="top.smartliu"/>-->
 
 </beans>
