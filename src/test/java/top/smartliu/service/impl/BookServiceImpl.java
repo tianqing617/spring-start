@@ -1,5 +1,6 @@
 package top.smartliu.service.impl;
 
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -11,9 +12,9 @@ import top.smartliu.service.BookService;
 @Service("bookService")
 @Scope("singleton")
 public class BookServiceImpl implements BookService {
-    @Autowired
-    @Qualifier("bookDao")
-//    @Resource(name="bookDao")
+//    @Autowired
+//    @Qualifier("bookDao")
+    @Resource(name="bookDao") // 需引入 javax.annotation 坐标
     private BookDao bookDao;
 
     public BookServiceImpl() {}
