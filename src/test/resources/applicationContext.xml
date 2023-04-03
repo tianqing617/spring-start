@@ -8,6 +8,7 @@
 <!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
 <!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
 <!--        &lt;!&ndash; 此部分的name，和DataSourceTest中的set方法相对应，28行 &ndash;&gt;-->
+<!--    通过setter对应的方法注入-->
 <!--        <property name="driverClassName" value="${jdbc.driver}"></property>-->
 <!--        <property name="url" value="${jdbc.url}"></property>-->
 <!--        <property name="username" value="${jdbc.username}"></property>-->
@@ -22,6 +23,7 @@
 <!--    <bean id="bookDao" class="top.smartliu.dao.impl.BookDaoImpl"/>-->
 
 <!--    <bean id="bookService" class="top.smartliu.service.impl.BookServiceImpl">-->
+<!--    通过构造函数注释-->
 <!--        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>-->
 <!--    </bean>-->
 
