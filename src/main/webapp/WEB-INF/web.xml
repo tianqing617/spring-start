@@ -12,6 +12,7 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:spring-mvc.xml</param-value>
     </init-param>
+    <!-- 启动时加载优先级，小正数的优先级大于大正数，如1优先于2。负数表示启动时不加载 -->
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>

@@ -10,7 +10,6 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @Controller
-//@RequestMapping("/book")
 public class BookController extends HttpServlet {
     @RequestMapping("/quick")
     public String save(HttpServletRequest request, HttpServletResponse response) throws IOException {
