@@ -20,6 +20,7 @@ public class BookController {
     @RequestMapping("/quick")
     public String save(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("Controller save running...");
+        // response.getWriter().print("hello itcast");
 
         return "success.jsp";
     }
@@ -31,7 +32,7 @@ public class BookController {
         return "success.jsp";
     }
     @RequestMapping("/quick3")
-    public String save3(@RequestBody User user) throws IOException {
+    public String save3(User user) throws IOException {
         // /quick3?username=jim&age=18
         System.out.println("save3" + user);
 
@@ -44,11 +45,12 @@ public class BookController {
 
         return "success.jsp";
     }
-    @RequestMapping("/quick5")
-    public String save5(@RequestBody List<User> userList) throws IOException {
+    @RequestMapping(value="/quick5", method = RequestMethod.POST)
+    @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
+    public void save5(@RequestBody List<User> userList) throws IOException {
         // /quick5
         System.out.println("save5" + userList);
 
-        return "success.jsp";
+//        return "success.jsp";
     }
 }
