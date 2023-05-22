@@ -51,6 +51,14 @@ public class BookController {
         // /quick5
         System.out.println("save5" + userList);
 
-//        return "success.jsp";
+        // return "success.jsp";
+    }
+
+    @RequestMapping(value="/quick6")
+    public String save6(@RequestBody User user) throws IOException {
+        // /quick6
+        System.out.println("save6" + user);
+
+        return "success.jsp";
     }
 }
