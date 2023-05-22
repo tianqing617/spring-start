@@ -7,4 +7,10 @@
     <!--Controller的组件扫描-->
     <context:component-scan base-package="top.smartliu.controller" />
 
+    <!--开放资源的访问-->
+    <!--<mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/img/**" location="/img/"/>-->
+    <!-- 若未找到Controller，则通过原始的静态资源服务器(即tomcat)查找   -->
+    <!-- <mvc:default-servlet-handler/> -->
+
 </beans>
