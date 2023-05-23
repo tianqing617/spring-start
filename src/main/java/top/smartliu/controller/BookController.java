@@ -2,10 +2,7 @@
 package top.smartliu.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import top.smartliu.domain.User;
 
 import javax.servlet.*;
@@ -54,10 +51,30 @@ public class BookController {
         // return "success.jsp";
     }
 
-    @RequestMapping(value="/quick6")
+    // TODO: POST请求报412错误
+    @RequestMapping(value="/quick6", method = RequestMethod.POST)
     public String save6(@RequestBody User user) throws IOException {
         // /quick6
         System.out.println("save6" + user);
+
+        return "success.jsp";
+    }
+
+    // requestParam示例
+    @RequestMapping("/quick7")
+    public String save7(@RequestParam("name") String username) throws IOException {
+        // /quick7?username=jim
+        System.out.println("save7" + username);
+
+        return "success.jsp";
+    }
+
+    // Restful示例
+    // TODO: 报404错误
+    @RequestMapping("/quick8/{name}")
+    public String save8(@PathVariable(value = "name", required = true) String name) throws IOException {
+        // /quick8/jim
+        System.out.println("save8" + name);
 
         return "success.jsp";
     }
