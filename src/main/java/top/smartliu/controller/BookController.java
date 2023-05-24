@@ -78,4 +78,14 @@ public class BookController {
 
         return "success.jsp";
     }
+
+    @RequestMapping("/quick9")
+    public String save9(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+        // /quick9
+        System.out.println(request);
+        System.out.println(response);
+        System.out.println(session);
+
+        return "success.jsp";
+    }
 }
