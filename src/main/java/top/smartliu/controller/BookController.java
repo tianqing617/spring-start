@@ -88,4 +88,20 @@ public class BookController {
 
         return "success.jsp";
     }
+
+    @RequestMapping("/quick10")
+    public String save10(@RequestHeader(value = "User-Agent", required = false) String userAgent) throws IOException {
+        // /quick10
+        System.out.println("save10 " + userAgent);
+
+        return "success.jsp";
+    }
+    @RequestMapping("/quick11")
+    public String save11(@CookieValue(value = "JSESSIONID") String jsessionId) throws IOException {
+        // /quick10
+        System.out.println("save11 " + jsessionId);
+
+        return "success.jsp";
+    }
+
 }
