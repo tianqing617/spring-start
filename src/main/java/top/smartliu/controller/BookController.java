@@ -51,7 +51,7 @@ public class BookController {
         // return "success.jsp";
     }
 
-    // TODO: POST请求报415错误
+    // POST请求报415错误，解决方案：https://blog.csdn.net/Mr_FenKuan/article/details/108935680
     @RequestMapping(value="/quick6", method = RequestMethod.POST)
     public String save6(@RequestBody User user) throws IOException {
         // /quick6
