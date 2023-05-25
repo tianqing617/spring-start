@@ -69,6 +69,7 @@ public class BookController {
 
     // Restful示例
     // 报404错误。解决方案：增加@ResponseBody注释
+    // @ResponseBody 告知SpringMVC框架 不进行视图跳转 直接进行数据响应。否则会跳转到/spring_start_war_exploded/quick8/success.jsp，报404
     @RequestMapping("/quick8/{name}")
     @ResponseBody
     public String save8(@PathVariable(value = "name", required = true) String name) throws IOException {
