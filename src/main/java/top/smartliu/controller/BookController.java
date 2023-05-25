@@ -5,9 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import top.smartliu.domain.User;
 
-import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -70,8 +68,9 @@ public class BookController {
     }
 
     // Restful示例
-    // TODO: 报404错误
+    // 报404错误。解决方案：增加@ResponseBody注释
     @RequestMapping("/quick8/{name}")
+    @ResponseBody
     public String save8(@PathVariable(value = "name", required = true) String name) throws IOException {
         // /quick8/jim
         System.out.println("save8" + name);
