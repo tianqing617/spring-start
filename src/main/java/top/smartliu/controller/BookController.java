@@ -8,6 +8,7 @@ import top.smartliu.domain.User;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -119,6 +120,14 @@ public class BookController {
     public String save11(@CookieValue(value = "JSESSIONID") String jsessionId) throws IOException {
         // /quick10
         System.out.println("save11 " + jsessionId);
+
+        return "success.jsp";
+    }
+
+    // 日期类型转换器
+    @RequestMapping(value="/quick12")
+    public String save12(Date date) throws IOException {
+        System.out.println("save12 " + date);
 
         return "success.jsp";
     }
