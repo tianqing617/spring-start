@@ -42,17 +42,36 @@ public class BookController {
     }
     @RequestMapping(value="/quick5", method = RequestMethod.POST)
     @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
-    public void save5(@RequestBody List<User> userList) throws IOException {
-        // /quick5
+    public String save5(@RequestBody List<User> userList) throws IOException {
+        /*  请求参数
+            curl --location 'http://localhost:8080/spring_start_war_exploded/quick5' \
+            --header 'Content-Type: application/json' \
+            --header 'Cookie: JSESSIONID=044EB97173FE4A231631E59EA95367CD' \
+            --data '[
+                {
+                    "username": "zs",
+                    "age": 18
+                },
+                {
+                    "username": "ls",
+                    "age": 20
+                }
+            ]'
+         */
         System.out.println("save5" + userList);
 
-        // return "success.jsp";
+        return "success.jsp";
     }
 
     // POST请求报415错误，解决方案：https://blog.csdn.net/Mr_FenKuan/article/details/108935680
     @RequestMapping(value="/quick6", method = RequestMethod.POST)
     public String save6(@RequestBody User user) throws IOException {
-        // /quick6
+        /* 请求参数
+        * curl --location 'http://localhost:8080/spring_start_war_exploded/quick6' \
+            --header 'Content-Type: application/json' \
+            --header 'Cookie: JSESSIONID=044EB97173FE4A231631E59EA95367CD' \
+            --data '{"username":"天青","age":18}'
+        * */
         System.out.println("save6" + user);
 
         return "success.jsp";
