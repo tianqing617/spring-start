@@ -3,10 +3,12 @@ package top.smartliu.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import top.smartliu.domain.User;
 
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -132,4 +134,38 @@ public class BookController {
         return "success.jsp";
     }
 
+    // 上传文件
+    @RequestMapping(value="/quick13")
+    public String save13(String username, MultipartFile uploadFile) throws IOException {
+        /**
+         curl --location 'http://localhost:8080/spring_start_war_exploded/quick13' \
+         --header 'Cookie: JSESSIONID=B57450AB1F45E9777F8BADFB16BF0FC3' \
+         --form 'username="lucy2"' \
+         --form 'uploadFile=@"/Users/tianqing/Desktop/imgs/bean.png"'
+         */
+        System.out.println(username);
+        //获得上传文件的名称
+        String originalFilename = uploadFile.getOriginalFilename();
+        uploadFile.transferTo(new File("/Users/tianqing/study/temp/" + originalFilename));
+
+        return "success.jsp";
+    }
+
+    @RequestMapping(value="/quick14")
+    public String save14(String username, MultipartFile[] uploadFile) throws IOException {
+        /**
+         curl --location 'http://localhost:8080/spring_start_war_exploded/quick14' \
+         --header 'Cookie: JSESSIONID=928741745D68D156D56CB6171275AB26' \
+         --form 'username="lucy2"' \
+         --form 'uploadFile=@"/Users/tianqing/Desktop/imgs/ipad.png"' \
+         --form 'uploadFile=@"/Users/tianqing/Desktop/imgs/iphone6s.png"'
+         */
+        System.out.println(username);
+        for (MultipartFile multipartFile : uploadFile) {
+            String originalFilename = multipartFile.getOriginalFilename();
+            multipartFile.transferTo(new File("/Users/tianqing/study/temp/" + originalFilename));
+        }
+
+        return "success.jsp";
+    }
 }
