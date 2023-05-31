@@ -12,7 +12,7 @@ public class BookDaoImpl implements BookDao {
         // 查询数据库数据，并打印
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         JdbcTemplate jdbcTemplate = app.getBean(JdbcTemplate.class);
-        int row = jdbcTemplate.update("insert into students values(?,?,?)", null, "lisi", 33);
+        int row = jdbcTemplate.update("insert into students values(?,?,?)", null, "wangwu", 6);
         System.out.println(row);
     }
 }
