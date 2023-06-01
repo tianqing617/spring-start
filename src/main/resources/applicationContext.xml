@@ -17,6 +17,11 @@
         <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>
     </bean>
 
+    <bean id="crudDao" class="top.smartliu.dao.impl.CrudDaoImpl"/>
+    <bean id="crudService" class="top.smartliu.service.impl.CrudServiceImpl">
+        <constructor-arg name="crudDao" ref="crudDao"></constructor-arg>
+    </bean>
+
     <!--加载jdbc.properties-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 

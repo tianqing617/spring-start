@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import top.smartliu.dao.BookDao;
 
 public class BookDaoImpl implements BookDao {
+    // 新增
     public void save() {
         System.out.println("book dao save ...");
 
