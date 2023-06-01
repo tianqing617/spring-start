@@ -36,7 +36,7 @@ public class CrudDaoImpl implements CrudDao {
 
     // 更新示例
     public void updateDemo() {
-        jdbcTemplate.update("update students set id=? where age=?",3, 14);
+        jdbcTemplate.update("update students set age=? where id=?",14, 3);
     }
 
     // 查询所有
