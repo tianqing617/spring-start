@@ -10,7 +10,7 @@ import top.smartliu.service.BookService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 // 使用配置文件的方式；括号内写入字符串，相当于 (value: "classpath:applicationContext.xml")
-// @ContextConfiguration("classpath:applicationContext.xml");
+// @ContextConfiguration("classpath:applicationContext.xml")
 // 使用配置类的方式
 @ContextConfiguration(classes = {SpringConfig.class})
 public class SpringJunitTest {
