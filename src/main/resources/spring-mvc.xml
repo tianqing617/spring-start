@@ -46,7 +46,7 @@
     <!--配置拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
-            <!--对哪些资源执行拦截操作-->
+            <!-- 指定拦截地址，对所有资源拦截，使用：/** -->
             <mvc:mapping path="/quick15"/>
             <bean class="top.smartliu.interceptor.MyInterceptor"/>
         </mvc:interceptor>
