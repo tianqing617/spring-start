@@ -168,4 +168,12 @@ public class BookController {
 
         return "success.jsp";
     }
+
+    // 拦截器
+    @RequestMapping("/quick15")
+    public String save15(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("Controller save15 Interceptor");
+
+        return "success.jsp";
+    }
 }
