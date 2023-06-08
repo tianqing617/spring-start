@@ -51,4 +51,20 @@
             <bean class="top.smartliu.interceptor.MyInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!--1. 配置异常处理器-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        &lt;!&ndash;默认跳转视图&ndash;&gt;
+        <property name="defaultErrorView" value="error"/>
+        &lt;!&ndash;跳转跳转映射&ndash;&gt;
+        <property name="exceptionMappings">
+            <map>
+                <entry key="java.lang.ClassCastException" value="error1"/>
+                <entry key="top.smartliu.exception.MyException" value="error2"/>
+            </map>
+        </property>
+    </bean>-->
+
+    <!--2. 自定义异常处理器-->
+    <!--<bean class="top.smartliu.exception.MyExceptionResolver"/>-->
 </beans>
