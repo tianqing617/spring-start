@@ -13,9 +13,9 @@ import java.io.IOException;
 
 @Controller
 public class AopController {
-    // TODO: 类型声明为 TargetInterface 报错
+    // 类型声明为 TargetInterface 报错。原因：Target要实现TargetInterface接口，不然会注入失败。
     @Autowired
-    private Target target;
+    private TargetInterface target;
 
     @RequestMapping("/test/aop")
     @ResponseBody
