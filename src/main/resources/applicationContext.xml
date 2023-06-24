@@ -3,30 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
-
-    <!--2.配置bean-->
-    <!--bean标签标示配置bean
-    id属性标示给bean起名字
-    class属性表示给bean定义类型-->
-    <bean id="bookDao" class="top.smartliu.dao.impl.BookDaoImpl"/>
-
-    <bean id="bookService" class="top.smartliu.service.impl.BookServiceImpl">
-        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>
-    </bean>
-
-    <bean id="crudDao" class="top.smartliu.dao.impl.CrudDaoImpl"/>
-    <bean id="crudService" class="top.smartliu.service.impl.CrudServiceImpl">
-        <constructor-arg name="crudDao" ref="crudDao"></constructor-arg>
-    </bean>
-
-    <!--加载jdbc.properties-->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
-
     <!--数据源对象-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -39,6 +22,25 @@
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <!--2.配置bean-->
+    <!--bean标签标示配置bean
+    id属性标示给bean起名字
+    class属性表示给bean定义类型-->
+    <bean id="bookDao" class="top.smartliu.dao.impl.BookDaoImpl"/>
+
+    <bean id="bookService" class="top.smartliu.service.impl.BookServiceImpl">
+        <constructor-arg name="bookDao" ref="bookDao"></constructor-arg>
+    </bean>
+
+    <bean id="crudDao" class="top.smartliu.dao.impl.CrudDaoImpl">
+    </bean>
+    <bean id="crudService" class="top.smartliu.service.impl.CrudServiceImpl">
+        <constructor-arg name="crudDao" ref="crudDao"></constructor-arg>
+    </bean>
+
+    <!--加载jdbc.properties-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!--注解的组件扫描-->
     <context:component-scan base-package="top.smartliu"/>
@@ -60,4 +62,28 @@
 
     <!--aop自动代理-->
     <aop:aspectj-autoproxy />
+
+    <!--事务部分配置-->
+    <!--配置平台事务管理器。根据不同的平台，class引用地址可能不同-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--通知  事务的增强-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <!--设置事务的属性信息的-->
+        <tx:attributes>
+            <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="save" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="findAll" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--配置事务的aop织入-->
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* top.smartliu.service.impl.CrudServiceImpl.txDemo(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
 </beans>
