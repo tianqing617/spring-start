@@ -70,20 +70,23 @@
     </bean>
 
     <!--通知  事务的增强-->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <!--设置事务的属性信息的-->
-        <tx:attributes>
-            <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="save" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="findAll" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
-            <tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
-            <tx:method name="*"/>
-        </tx:attributes>
-    </tx:advice>
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+    <!--    &lt;!&ndash;设置事务的属性信息的&ndash;&gt;-->
+    <!--    <tx:attributes>-->
+    <!--        <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>-->
+    <!--        <tx:method name="save" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>-->
+    <!--        <tx:method name="findAll" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>-->
+    <!--        <tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>-->
+    <!--        <tx:method name="*"/>-->
+    <!--    </tx:attributes>-->
+    <!--</tx:advice>-->
 
-    <!--配置事务的aop织入-->
-    <aop:config>
-        <aop:pointcut id="txPointcut" expression="execution(* top.smartliu.service.impl.CrudServiceImpl.txDemo(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
-    </aop:config>
+    <!--&lt;!&ndash;配置事务的aop织入&ndash;&gt;-->
+    <!--<aop:config>-->
+    <!--    <aop:pointcut id="txPointcut" expression="execution(* top.smartliu.service.impl.CrudServiceImpl.txDemo(..))"/>-->
+    <!--    <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>-->
+    <!--</aop:config>-->
+
+    <!--事物的注解驱动。以上注释部分，使用注解实现-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
