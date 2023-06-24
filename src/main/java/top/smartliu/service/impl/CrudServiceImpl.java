@@ -17,4 +17,12 @@ public class CrudServiceImpl implements CrudService {
         System.out.println("crud service");
         crudDao.addDemo();
     }
+
+    // 事务示例
+    @Override
+    public void txDemo() {
+        crudDao.updateDemo(3, 111);
+        int error = 1 / 0;
+        crudDao.updateDemo(4, 44);
+    }
 }

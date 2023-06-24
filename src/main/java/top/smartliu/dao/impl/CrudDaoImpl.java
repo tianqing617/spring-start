@@ -19,8 +19,7 @@ public class CrudDaoImpl implements CrudDao {
         System.out.println("crud dao");
         // deleteDemo();
 
-        // TODO: 删除未成功
-        updateDemo();
+        updateDemo(3, 33);
 
         // selectAllDemo();
 
@@ -35,8 +34,9 @@ public class CrudDaoImpl implements CrudDao {
     }
 
     // 更新示例
-    public void updateDemo() {
-        jdbcTemplate.update("update students set age=? where id=?",14, 3);
+    @Override
+    public void updateDemo(Number id, Number age) {
+        jdbcTemplate.update("update students set age=? where id=?",age, id);
     }
 
     // 查询所有

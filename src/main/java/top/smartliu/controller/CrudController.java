@@ -46,4 +46,11 @@ public class CrudController {
         crudService.addDemo();
         return "/success.jsp";
     }
+
+    // 事务配置测试
+    @RequestMapping("/crud/update-tx")
+    public String addDemo3() {
+        crudService.txDemo();
+        return "/success.jsp";
+    }
 }
