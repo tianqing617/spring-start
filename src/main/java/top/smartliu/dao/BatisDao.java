@@ -1,5 +1,7 @@
 package top.smartliu.dao;
 
+import java.io.IOException;
+
 public interface BatisDao {
-    public void test();
+    public void test() throws IOException;
 }

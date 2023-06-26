@@ -8,6 +8,7 @@ import top.smartliu.service.BatisService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @ResponseBody
@@ -16,7 +17,7 @@ public class BatisController {
     private BatisService batisService;
 
     @RequestMapping("/batis/test")
-    public String test(HttpServletRequest request, HttpServletResponse response) {
+    public String test(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("batis controller test");
         batisService.test();
 
