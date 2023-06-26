@@ -39,6 +39,12 @@
         <constructor-arg name="crudDao" ref="crudDao"></constructor-arg>
     </bean>
 
+    <bean id="batisService" class="top.smartliu.service.impl.BatisServiceImpl">
+        <!--<constructor-arg name="batisDao" ref="batisDao"></constructor-arg>-->
+    </bean>
+    <bean id="batisDao" class="top.smartliu.dao.impl.BatisDaoImpl">
+    </bean>
+
     <!--加载jdbc.properties-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
