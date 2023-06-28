@@ -18,12 +18,46 @@ public class BatisDaoImpl implements BatisDao {
         SqlSession sqlSession = getSqlSession();
 
         // 执行SQL语句
-        List<User> userList = sqlSession.selectList("userMapper.selectAll");
-
-        // 打印结果
-        System.out.println(userList);
-
+        // 1. 查询
+        // List<User> userList = sqlSession.selectList("userMapper.selectAll");
+        // System.out.println(userList);
+        // 2. 新增
+        // testInsert();
+        // 3. 更新
+        // testUpdate();
+        // 4. 删除
+        testDelete();
         // 释放资源
+        sqlSession.close();
+    }
+
+    public void testDelete() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        sqlSession.delete("userMapper.delete", 8);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    public void testUpdate() throws IOException {
+        User user = new User();
+        user.setId(4);
+        user.setUsername("海汇");
+        user.setAge(30);
+
+        SqlSession sqlSession = getSqlSession();
+        sqlSession.update("userMapper.update", user);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    public void testInsert() throws IOException {
+        User user = new User();
+        user.setUsername("盛华里");
+        user.setAge(33);
+
+        SqlSession sqlSession = getSqlSession();
+        sqlSession.insert("userMapper.insert", user);
+        sqlSession.commit();
         sqlSession.close();
     }
 

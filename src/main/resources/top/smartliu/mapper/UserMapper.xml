@@ -5,8 +5,20 @@
 
 <!--namespace:名称空间-->
 <mapper namespace="userMapper">
-    <select id="selectAll" resultType="top.smartliu.domain.User">
-        select *
+    <resultMap id="userMap" type="top.smartliu.domain.User">
+        <result column="name" property="username"></result>
+    </resultMap>
+    <select id="selectAll" resultType="top.smartliu.domain.User" resultMap="userMap">
+        select id, name, age
         from students;
     </select>
+    <insert id="insert" parameterType="top.smartliu.domain.User">
+        insert into students values(#{id}, #{username}, #{age})
+    </insert>
+    <update id="update" parameterType="top.smartliu.domain.User">
+        update students set name=#{username}, age=#{age} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from students where id=#{id}
+    </delete>
 </mapper>
