@@ -15,14 +15,7 @@ public class BatisDaoImpl implements BatisDao {
     public void test() throws IOException {
         System.out.println("batis dao test");
 
-        // 加载核心配置文件
-        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");
-
-        // 获取SqlSession工厂对象
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
-
-        // 获取SqlSession对象
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = getSqlSession();
 
         // 执行SQL语句
         List<User> userList = sqlSession.selectList("userMapper.selectAll");
@@ -32,5 +25,16 @@ public class BatisDaoImpl implements BatisDao {
 
         // 释放资源
         sqlSession.close();
+    }
+
+    private SqlSession getSqlSession() throws IOException {
+        // 加载核心配置文件
+        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");
+
+        // 获取SqlSession工厂对象
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        // 获取SqlSession对象
+        return sqlSessionFactory.openSession();
     }
 }
