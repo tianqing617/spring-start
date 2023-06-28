@@ -33,7 +33,10 @@ public class BatisDaoImpl implements BatisDao {
 
     public void testDelete() throws IOException {
         SqlSession sqlSession = getSqlSession();
+        // 形参一：userMapper.delete 表示：命名空间.id
+        // 形参二：支持传入id；支持传入Object，按多条件过滤删除
         sqlSession.delete("userMapper.delete", 8);
+        // 需要手动提交事务
         sqlSession.commit();
         sqlSession.close();
     }
