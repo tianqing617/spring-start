@@ -16,13 +16,15 @@ public class BatisDaoImpl implements BatisDao {
         System.out.println("batis dao test");
 
         // 1. 查询
-        testSelectAll();
+        // testSelectAll();
         // 2. 新增
         // testInsert();
         // 3. 更新
         // testUpdate();
         // 4. 删除
         // testDelete();
+        // 5. 查询单个
+        testSelectOne();
     }
     public void testSelectAll() throws IOException {
         SqlSession sqlSession = getSqlSession();
@@ -31,6 +33,15 @@ public class BatisDaoImpl implements BatisDao {
         // 1. 查询
         List<User> userList = sqlSession.selectList("userMapper.selectAll");
         System.out.println(userList);
+        // 释放资源
+        sqlSession.close();
+    }
+
+    public void testSelectOne() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+
+        User user = sqlSession.selectOne("userMapper.findById", 7);
+        System.out.println(user);
         // 释放资源
         sqlSession.close();
     }
