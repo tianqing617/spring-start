@@ -45,6 +45,11 @@
     <bean id="batisDao" class="top.smartliu.dao.impl.BatisDaoImpl">
     </bean>
 
+    <bean id="studentService" class="top.smartliu.service.impl.StudentServiceImpl">
+    </bean>
+    <!--<bean id="studentDao" class="top.smartliu.dao.impl.StudentDaoImpl">-->
+    <!--</bean>-->
+
     <!--加载jdbc.properties-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
