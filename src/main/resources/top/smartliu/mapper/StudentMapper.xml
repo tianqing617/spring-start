@@ -4,12 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--namespace:名称空间-->
-<mapper namespace="top.smartliu.mapper.StudentMapper">
+<mapper namespace="top.smartliu.dao.StudentMapper">
     <resultMap id="userMap" type="top.smartliu.domain.User">
         <result column="name" property="username"></result>
     </resultMap>
 
-    <select id="findById" parameterType="int" resultType="user">
+    <!--user编辑报红，指无法解析别名。但程序是正常的-->
+    <select id="findById" parameterType="int" resultType="user" resultMap="userMap">
         select * from students where id=#{id}
     </select>
 </mapper>

@@ -25,7 +25,8 @@
     </environments>
 
     <mappers>
-         <mapper resource="top/smartliu/mapper/UserMapper.xml"/>
+        <mapper resource="top/smartliu/mapper/UserMapper.xml"/>
+        <mapper resource="top/smartliu/mapper/StudentMapper.xml"/>
         <!--TODO: 用此配置报 java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for userMapper.selectAll-->
         <!--<package name="top.smartliu.mapper"/>-->
     </mappers>
