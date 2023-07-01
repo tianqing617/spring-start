@@ -8,7 +8,8 @@
     <resultMap id="userMap" type="top.smartliu.domain.User">
         <result column="name" property="username"></result>
     </resultMap>
-    <select id="selectAll" resultType="top.smartliu.domain.User" resultMap="userMap">
+
+    <select id="selectAll" resultType="user" resultMap="userMap">
         select id, name, age
         from students;
     </select>
