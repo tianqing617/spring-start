@@ -15,18 +15,22 @@ public class BatisDaoImpl implements BatisDao {
     public void test() throws IOException {
         System.out.println("batis dao test");
 
-        SqlSession sqlSession = getSqlSession();
-
-        // 执行SQL语句
         // 1. 查询
-        // List<User> userList = sqlSession.selectList("userMapper.selectAll");
-        // System.out.println(userList);
+        testSelectAll();
         // 2. 新增
         // testInsert();
         // 3. 更新
         // testUpdate();
         // 4. 删除
-        testDelete();
+        // testDelete();
+    }
+    public void testSelectAll() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+
+        // 执行SQL语句
+        // 1. 查询
+        List<User> userList = sqlSession.selectList("userMapper.selectAll");
+        System.out.println(userList);
         // 释放资源
         sqlSession.close();
     }
