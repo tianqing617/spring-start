@@ -9,4 +9,7 @@ public interface StudentMapper {
 
     // 动态SQL。多条件，使用if标签
     public List<User> findByCondition(User user);
+
+    // 动态SQL。多条件，使用foreach标签
+    public List<User> findByIds(List<Integer> ids);
 }

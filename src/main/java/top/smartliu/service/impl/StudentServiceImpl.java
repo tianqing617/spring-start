@@ -10,6 +10,7 @@ import top.smartliu.service.StudentService;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentServiceImpl implements StudentService {
@@ -22,12 +23,19 @@ public class StudentServiceImpl implements StudentService {
         // User user = mapper.findById(1);
         // System.out.println(user);
 
-        // 2. 多条件查询
-        //模拟条件user
-        User condition = new User();
-        condition.setUsername("Jim");
-        condition.setAge(22);
-        List<User> userList = mapper.findByCondition(condition);
+        // 2. 多条件查询，if
+        // User condition = new User();
+        // condition.setUsername("Jim");
+        // condition.setAge(22);
+        // List<User> userList = mapper.findByCondition(condition);
+        // System.out.println(userList);
+
+        // 3. 多条件查询，foreach
+        List<Integer> ids = new ArrayList<Integer>();
+        ids.add(1);
+        ids.add(2);
+        ids.add(7);
+        List<User> userList = mapper.findByIds(ids);
         System.out.println(userList);
 
         sqlSession.close();

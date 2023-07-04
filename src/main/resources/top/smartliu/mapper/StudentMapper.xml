@@ -16,7 +16,7 @@
 
     <!--动态SQL-->
     <sql id="selectUser">select * from students</sql>
-
+    <!--多条件查询-->
     <select id="findByCondition" parameterType="user" resultType="user" resultMap="userMap">
         <include refid="selectUser"></include>
         <where>
@@ -26,6 +26,16 @@
             <if test="age!=null">
                 and age=#{age}
             </if>
+        </where>
+    </select>
+
+    <!--集合查询-->
+    <select id="findByIds" parameterType="list" resultType="user" resultMap="userMap">
+        <include refid="selectUser"></include>
+        <where>
+            <foreach collection="list" open="id in(" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
         </where>
     </select>
 </mapper>
