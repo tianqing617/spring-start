@@ -13,4 +13,19 @@
     <select id="findById" parameterType="int" resultType="user" resultMap="userMap">
         select * from students where id=#{id}
     </select>
+
+    <!--动态SQL-->
+    <sql id="selectUser">select * from students</sql>
+
+    <select id="findByCondition" parameterType="user" resultType="user" resultMap="userMap">
+        <include refid="selectUser"></include>
+        <where>
+            <if test="username!=null">
+                and name=#{username}
+            </if>
+            <if test="age!=null">
+                and age=#{age}
+            </if>
+        </where>
+    </select>
 </mapper>

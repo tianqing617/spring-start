@@ -10,6 +10,7 @@ import top.smartliu.service.StudentService;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class StudentServiceImpl implements StudentService {
     public void test() throws IOException {
@@ -17,8 +18,17 @@ public class StudentServiceImpl implements StudentService {
         SqlSession sqlSession = getSqlSession();
 
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-        User user = mapper.findById(1);
-        System.out.println(user);
+        // 1. 基础用法
+        // User user = mapper.findById(1);
+        // System.out.println(user);
+
+        // 2. 多条件查询
+        //模拟条件user
+        User condition = new User();
+        condition.setUsername("Jim");
+        condition.setAge(22);
+        List<User> userList = mapper.findByCondition(condition);
+        System.out.println(userList);
 
         sqlSession.close();
     }
