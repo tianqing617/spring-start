@@ -10,6 +10,8 @@
     <!--自定义别名-->
     <typeAliases>
         <typeAlias type="top.smartliu.domain.User" alias="user"></typeAlias>
+        <typeAlias type="top.smartliu.domain.Order" alias="order"></typeAlias>
+        <typeAlias type="top.smartliu.domain.Customer" alias="customer"></typeAlias>
     </typeAliases>
 
     <environments default="development">

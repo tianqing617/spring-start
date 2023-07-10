@@ -38,4 +38,9 @@
             </foreach>
         </where>
     </select>
+
+    <!--通过id查询订单信息-->
+    <select id="getOrderById" parameterType="int" resultType="order">
+        select * from orderlist where id=#{id}
+    </select>
 </mapper>

@@ -1,5 +1,6 @@
 package top.smartliu.dao;
 
+import top.smartliu.domain.Order;
 import top.smartliu.domain.User;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface StudentMapper {
 
     // 动态SQL。多条件，使用foreach标签
     public List<User> findByIds(List<Integer> ids);
+
+    public Order getOrderById(Integer id);
 }

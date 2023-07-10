@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import top.smartliu.dao.StudentMapper;
+import top.smartliu.domain.Order;
 import top.smartliu.domain.User;
 import top.smartliu.service.StudentService;
 
@@ -43,7 +44,11 @@ public class StudentServiceImpl implements StudentService {
 
     public void getOrderById() throws IOException {
         System.out.println("batis service getOrderById");
-        // batisDao.test();
+        SqlSession sqlSession = getSqlSession();
+
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        Order order = mapper.getOrderById(1);
+        System.out.println(order);
     }
 
     private SqlSession getSqlSession() throws IOException {
