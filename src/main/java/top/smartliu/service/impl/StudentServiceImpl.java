@@ -41,6 +41,11 @@ public class StudentServiceImpl implements StudentService {
         sqlSession.close();
     }
 
+    public void getOrderById() throws IOException {
+        System.out.println("batis service getOrderById");
+        // batisDao.test();
+    }
+
     private SqlSession getSqlSession() throws IOException {
         // 加载核心配置文件
         InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");

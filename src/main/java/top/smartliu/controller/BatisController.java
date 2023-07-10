@@ -23,8 +23,4 @@ public class BatisController {
 
         return "success.jsp";
     }
-
-    // 一对一：查询一个订单，同时获取此订单对应的客户（实体内存在user字段，对应一个User对象）
-    // 一对多：查询一个用户，購获取该用户所属的所有订单（实体内存在orderList字段，对应一组Order对象）
-    // 多对多：查询用户的同时，查询出该用户的所有角色。
 }
