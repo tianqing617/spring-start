@@ -40,7 +40,21 @@
     </select>
 
     <!--通过id查询订单信息-->
-    <select id="getOrderById" parameterType="int" resultType="order">
-        select * from orderlist where id=#{id}
+    <resultMap id="orderMap" type="order">
+        <!--column: 数据表的字段名称-->
+        <!--property：实体的属性名称-->
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="total" property="total"></result>
+        <!--property: 当前实体(order)中的属性名称(private User user)-->
+        <!--javaType: 当前实体(order)中的属性的类型(User)-->
+        <association property="customer" javaType="customer">
+            <id column="uid" property="id"></id>
+            <result column="uname" property="name"></result>
+            <result column="sex" property="sex"></result>
+        </association>
+    </resultMap>
+    <select id="getOrderById" parameterType="int" resultType="order" resultMap="orderMap">
+        select o.id, o.name, o.total, c.id uid, c.name uname, c.sex from orderlist o, customer c where o.id = c.id and o.id=#{id}
     </select>
 </mapper>
