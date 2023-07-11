@@ -51,6 +51,15 @@ public class StudentServiceImpl implements StudentService {
         System.out.println(order);
     }
 
+    public void getOrderAndUser() throws IOException {
+        System.out.println("batis service getOrderAndUser");
+        SqlSession sqlSession = getSqlSession();
+
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        List<Order> orderList = mapper.getOrderAndUser();
+        System.out.println(orderList);
+    }
+
     private SqlSession getSqlSession() throws IOException {
         // 加载核心配置文件
         InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");

@@ -34,5 +34,12 @@ public class StudentController {
         return "success.jsp";
     }
     // 一对多：查询一个用户，購获取该用户所属的所有订单（实体内存在orderList字段，对应一组Order对象）
+    @RequestMapping("/table/relationship2")
+    public String test3(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("batis controller test3");
+        studentService.getOrderAndUser();
+
+        return "success.jsp";
+    }
     // 多对多：查询用户的同时，查询出该用户的所有角色。
 }

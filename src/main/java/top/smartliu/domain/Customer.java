@@ -1,9 +1,12 @@
 package top.smartliu.domain;
 
+import java.util.List;
+
 public class Customer {
     private  int id;
     private String name;
     private String sex;
+    private List<Order> orderList;
 
     public int getId() {
         return id;
@@ -29,12 +32,21 @@ public class Customer {
         this.sex = sex;
     }
 
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
+                ", orderList=" + orderList +
                 '}';
     }
 }

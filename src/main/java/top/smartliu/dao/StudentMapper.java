@@ -15,4 +15,6 @@ public interface StudentMapper {
     public List<User> findByIds(List<Integer> ids);
 
     public Order getOrderById(Integer id);
+
+    public List<Order> getOrderAndUser();
 }
