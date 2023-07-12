@@ -10,9 +10,14 @@
     </resultMap>
 
     <!--user编辑报红，指无法解析别名。但程序是正常的-->
-    <select id="findById" parameterType="int" resultType="user" resultMap="userMap">
+    <select id="findById" parameterType="int" resultMap="userMap">
         select * from students where id=#{id}
     </select>
+
+    <!--使用注解方式-->
+    <!--<select id="findAll" resultMap="userMap">-->
+    <!--    select * from students-->
+    <!--</select>-->
 
     <!--动态SQL-->
     <sql id="selectUser">select * from students</sql>

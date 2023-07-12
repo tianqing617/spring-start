@@ -1,5 +1,7 @@
 package top.smartliu.dao;
 
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 import top.smartliu.domain.Order;
 import top.smartliu.domain.User;
 
@@ -19,4 +21,8 @@ public interface StudentMapper {
     public List<Order> getOrderAndUser();
 
     public List<User> findUserAndRoleAll();
+
+    @Select("select * from students")
+    @ResultMap("userMap")
+    public List<User> findAll();
 }

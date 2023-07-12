@@ -49,4 +49,13 @@ public class StudentController {
 
         return "success.jsp";
     }
+
+    // 注释方式：查询用法
+    @RequestMapping("/student/annotation")
+    public String test5(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("batis controller test2");
+        studentService.test2();
+
+        return "success.jsp";
+    }
 }

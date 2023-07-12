@@ -79,4 +79,13 @@ public class StudentServiceImpl implements StudentService {
         // 获取SqlSession对象
         return sqlSessionFactory.openSession();
     }
+
+    public void test2() throws IOException {
+        System.out.println("batis service test2");
+        SqlSession sqlSession = getSqlSession();
+
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        List<User> userList = mapper.findAll();
+        System.out.println(userList);
+    }
 }
