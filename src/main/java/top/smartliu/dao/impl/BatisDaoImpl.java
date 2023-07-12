@@ -1,5 +1,6 @@
 package top.smartliu.dao.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,7 +17,7 @@ public class BatisDaoImpl implements BatisDao {
         System.out.println("batis dao test");
 
         // 1. 查询
-        // testSelectAll();
+        testSelectAll();
         // 2. 新增
         // testInsert();
         // 3. 更新
@@ -24,12 +25,14 @@ public class BatisDaoImpl implements BatisDao {
         // 4. 删除
         // testDelete();
         // 5. 查询单个
-        testSelectOne();
+        // testSelectOne();
     }
     public void testSelectAll() throws IOException {
         SqlSession sqlSession = getSqlSession();
 
-        // 执行SQL语句
+        // 设置翻页
+        // TODO: 翻页功能未生效，可能因为版本问题
+        PageHelper.startPage(1, 2);
         // 1. 查询
         List<User> userList = sqlSession.selectList("userMapper.selectAll");
         System.out.println(userList);
