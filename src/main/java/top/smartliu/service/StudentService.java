@@ -8,4 +8,6 @@ public interface StudentService {
     public void getOrderById() throws IOException;
 
     public void getOrderAndUser() throws IOException;
+
+    public void findUserAndRoleAll() throws IOException;
 }

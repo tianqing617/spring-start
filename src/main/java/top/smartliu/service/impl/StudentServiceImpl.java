@@ -60,6 +60,15 @@ public class StudentServiceImpl implements StudentService {
         System.out.println(orderList);
     }
 
+    public void findUserAndRoleAll() throws IOException {
+        System.out.println("batis service findUserAndRoleAll");
+        SqlSession sqlSession = getSqlSession();
+
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        List<User> userList = mapper.findUserAndRoleAll();
+        System.out.println(userList);
+    }
+
     private SqlSession getSqlSession() throws IOException {
         // 加载核心配置文件
         InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");

@@ -7,6 +7,7 @@ public class Customer {
     private String name;
     private String sex;
     private List<Order> orderList;
+    private List<Role> RoleList;
 
     public int getId() {
         return id;
@@ -40,6 +41,14 @@ public class Customer {
         this.orderList = orderList;
     }
 
+    public List<Role> getRoleList() {
+        return RoleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        RoleList = roleList;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -47,6 +56,7 @@ public class Customer {
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", orderList=" + orderList +
+                ", RoleList=" + RoleList +
                 '}';
     }
 }

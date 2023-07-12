@@ -58,7 +58,7 @@
         select o.id, o.name, o.total, c.id uid, c.name uname, c.sex from orderlist o, customer c where o.id = c.id and o.id=#{id}
     </select>
 
-    <!--通过用户id，查询相关的订单信息-->
+    <!--查询相关的订单信息-->
     <resultMap id="customerMap" type="customer">
         <!--column: 数据表的字段名称-->
         <!--property：实体的属性名称-->
@@ -75,5 +75,20 @@
     </resultMap>
     <select id="getOrderAndUser" resultMap="customerMap">
         select o.id, o.name, o.total, c.id uid, c.name uname, c.sex from orderlist o, customer c where o.userId = c.id
+    </select>
+
+    <resultMap id="userRoleMap" type="customer">
+        <id column="uid" property="id"></id>
+        <result column="uname" property="name"></result>
+        <result column="sex" property="sex"></result>
+        <collection property="roleList" ofType="role">
+            <id column="rid" property="id"></id>
+            <result column="rname" property="name"></result>
+            <result column="desc" property="desc"></result>
+        </collection>
+    </resultMap>
+
+    <select id="findUserAndRoleAll" resultMap="userRoleMap">
+        SELECT c.id uid, c.name uname, c.sex, r.id rid, r.name rname, r.desc FROM customer c,userAndRole ur,role r WHERE c.id=ur.userId AND ur.roleId=r.id
     </select>
 </mapper>

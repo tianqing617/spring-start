@@ -12,6 +12,7 @@
         <typeAlias type="top.smartliu.domain.User" alias="user"></typeAlias>
         <typeAlias type="top.smartliu.domain.Order" alias="order"></typeAlias>
         <typeAlias type="top.smartliu.domain.Customer" alias="customer"></typeAlias>
+        <typeAlias type="top.smartliu.domain.Role" alias="role"></typeAlias>
     </typeAliases>
 
     <environments default="development">

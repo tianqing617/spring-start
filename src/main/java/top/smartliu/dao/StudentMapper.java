@@ -17,4 +17,6 @@ public interface StudentMapper {
     public Order getOrderById(Integer id);
 
     public List<Order> getOrderAndUser();
+
+    public List<User> findUserAndRoleAll();
 }
