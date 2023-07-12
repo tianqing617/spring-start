@@ -7,6 +7,11 @@
     <!--通过properties标签加载外部properties文件-->
     <properties resource="jdbc.properties"></properties>
 
+    <!--设置开启动态SQL日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
     <!--自定义别名-->
     <typeAliases>
         <typeAlias type="top.smartliu.domain.User" alias="user"></typeAlias>
